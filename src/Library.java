@@ -17,6 +17,8 @@ public class Library {
         count++;
     }
 
+
+    // hej
     public void printAllBooks(){
         for(int i = 0; i < count; i++){
             System.out.println(books[i].getTitle());
