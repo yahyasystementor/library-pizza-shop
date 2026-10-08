@@ -5,7 +5,6 @@ import java.util.*;
 public class Spotify {
     public static void main(String[] args) {
 
-        Wrapped wrapped = new Wrapped();
 
         List<Song> songs = new ArrayList<>();
 
@@ -20,6 +19,7 @@ public class Spotify {
         songs.add(new Song("Watermelon Sugar", "Harry Styles"));
         songs.add(new Song("Sign of the Times", "Harry Styles"));
 
+        Wrapped wrapped = new Wrapped(songs);
         wrapped.printReport();
 
 

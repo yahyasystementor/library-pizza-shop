@@ -4,7 +4,15 @@ import java.util.*;
 
 public class Wrapped {
 
-    private List<Song> songs = new ArrayList<>();
+    private List<Song> songs;
+
+    public Wrapped() {
+        songs = new ArrayList<>();
+    }
+
+    public Wrapped(List<Song> songs) {
+        this.songs = songs;
+    }
 
     public void addSong(String title, String artist) {
         songs.add(new Song(title, artist));
@@ -21,7 +29,6 @@ public class Wrapped {
         System.out.println("Artists listened to ");
         for (String artist : getArtists()) {
             System.out.println(artist);
-
 
             for (Song song : byArtist.get(artist)) {
                 System.out.println(" " + song.getTitle());
