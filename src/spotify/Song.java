@@ -1,13 +1,14 @@
 package spotify;
 
 public class Song {
-    String artist;
-    String title;
+    private final String artist;
+    private final String title;
 
     public Song(String artist, String title) {
         this.artist = artist;
         this.title = title;
     }
+
     public String getArtist() {
         return artist;
     }
@@ -20,10 +21,4 @@ public class Song {
     public String toString() {
         return artist + " - " + title;
     }
-
-
-
-
-
-
 }
