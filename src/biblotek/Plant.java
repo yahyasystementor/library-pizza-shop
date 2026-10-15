@@ -1,3 +1,5 @@
+package biblotek;
+
 public enum Plant {
         KAKTUS("Kaktus", 0.5f),
         PALM("PALM", 1.0f),

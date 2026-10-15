@@ -41,8 +41,6 @@ public class Wrapped {
     }
 
 
-
-
     public Map<String, List<Song>> getSongsByArtist() {
         Map<String, List<Song>> result = new HashMap<>();
         for (Song song : songs) {

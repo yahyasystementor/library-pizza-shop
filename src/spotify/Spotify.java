@@ -20,6 +20,10 @@ public class Spotify {
         songs.add(new Song("Watermelon Sugar", "Harry Styles"));
         songs.add(new Song("Sign of the Times", "Harry Styles"));
 
+
+
+
+
         wrapped.printReport();
 
 
