@@ -4,12 +4,9 @@ public class Main {
     public static void main(String[] args) {
 
 
-
-
         // Movies
         Media movie1 = new Movie("movie1", 2);
         Movie movie2 = new Movie("movie2", 2);
-
 
         // AudioBook
         AudioBook audioBook1 = new AudioBook("Audio1", "Yahya");
@@ -18,9 +15,6 @@ public class Main {
         // Music
         Music music1 = new Music("Music1", "Yahya");
         Music music2 = new Music("Music2", "Yahya");
-
-
-
 
 
         Media[] media = new Media[6];
