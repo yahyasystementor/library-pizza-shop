@@ -1,5 +1,6 @@
 package errorhandling;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -10,6 +11,37 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+
+
+
+        Path path = Path.of("users.txt");
+
+        try (BufferedReader reader = Files.newBufferedReader(path, StandardCharsets.UTF_8)){
+            String line;
+            while ((line = reader.readLine()) !=null) {
+
+                String[] parts = line.split(",");
+
+                System.out.println(parts[0]);
+                System.out.println(parts[1]);
+                System.out.println(parts[2]);
+
+            }
+
+        } catch (IOException e) {
+            System.out.println("Error reading users.txt file");
+            System.out.println(e.getMessage());
+        }
+
+
+
+
+
+
+
+
+
+
 
 
         /*
