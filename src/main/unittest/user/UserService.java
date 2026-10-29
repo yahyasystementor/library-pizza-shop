@@ -13,22 +13,26 @@ public class UserService {
         users.put(user.getEmail(),  user);
     }
 
+    // TODO
+    /*
+        SKRIVER TEST FÖR getUserByEmail, updateUser, deleteUser
+        Använd BeforeEach och AfterEach
+     */
+
+
     // Read
     public User getUserByEmail(String email){
         return users.get(email);
     }
-
     //Update
     public boolean updateUser(String email,String newName) {
         User user = users.get(email);
         if (user == null){
             return false;
         }
-
         user.setName(newName);
         return true;
     }
-
 
     public boolean deleteUser(String email){
         User user = users.remove(email);
