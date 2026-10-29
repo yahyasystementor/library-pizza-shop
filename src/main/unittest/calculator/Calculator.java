@@ -1,4 +1,4 @@
-package main.unittest;
+package main.unittest.calculator;
 
 public class Calculator {
     public int add(int a, int b) {

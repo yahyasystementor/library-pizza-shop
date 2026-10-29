@@ -1,6 +1,6 @@
-package test;
+package test.calculator;
 
-import main.unittest.Calculator;
+import main.unittest.calculator.Calculator;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
