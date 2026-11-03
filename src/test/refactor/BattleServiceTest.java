@@ -20,6 +20,8 @@ public class BattleServiceTest {
         enemy = new Fighter("Mage");
     }
 
+
+
     @Test
     void attackShouldAlwaysReduceHpBy10(){
         // Act
@@ -41,6 +43,30 @@ public class BattleServiceTest {
         assertEquals(0, enemy.getHp());
 
     }
+
+    @Test
+    void healShouldAlwaysIncreaseHpBy10(){
+        //Arrange
+        player.setHp(50);
+        // Act
+        battleService.heal(player);
+        // Assert
+        assertEquals(60, player.getHp());
+
+    }
+
+
+    @Test
+    void healShouldNeverIncreaseHealthOver100(){
+        //Arrange
+        player.setHp(95);
+        // Act
+        battleService.heal(player);
+        // Assert
+        assertEquals(100, player.getHp());
+    }
+
+
 
 
 

@@ -1,16 +1,25 @@
 package main.refactor;
 
 public class Fighter {
-    private static final int ATTACK_DAMAGE = 10;
-    private static final int MINIMAL_HP = 0;
-
 
     private String name;
     private int hp;
 
     public Fighter(String name) {
         this.name = name;
-        this.hp = 100;
+        this.hp = FighterStats.MAX_HP.getValue();
+    }
+
+    public void takeDamage(int damage ){
+        setHp(getHp() - damage);
+    }
+
+    public int giveDamage(){
+        return FighterStats.ATTACK_DAMAGE.getValue();
+    }
+
+    public void healFighter(int healAmount){
+        setHp (getHp() + healAmount);
     }
 
     public String getName() {
@@ -26,13 +35,17 @@ public class Fighter {
     }
 
     public void setHp(int hp) {
-        this.hp = hp;
-    }
-
-    public void takeDamage(int damage){
-        hp = hp - damage;
-        if(hp < MINIMAL_HP)  {
-            hp = MINIMAL_HP;
+        if (hp> FighterStats.MAX_HP.getValue()){
+            this.hp = FighterStats.MAX_HP.getValue();
+        } else if (hp < FighterStats.MIN_HP.getValue()) {
+            this.hp = FighterStats.MIN_HP.getValue();
+        } else {
+            this.hp = hp;
         }
     }
+
+    public boolean isAlive(){
+        return hp > 0;
+    }
+
 }

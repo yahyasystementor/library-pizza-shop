@@ -2,19 +2,12 @@ package main.refactor;
 
 public class BattleService {
 
-    private static final int ATTACK_DAMAGE = 10;
-    private static final int MINIMAL_HP = 0;
-
-
-
 
     public void attack(Fighter attacker, Fighter defender){
-        int damage = ATTACK_DAMAGE;
-
+        int damage = attacker.giveDamage();
         defender.takeDamage(damage);
         printAttackResults(attacker,defender,damage);
-
-        if (defender.getHp() == MINIMAL_HP) {
+        if (!defender.isAlive()) {
             System.out.println(defender.getName() + " has been defeated");
         }
     }
@@ -27,21 +20,24 @@ public class BattleService {
 
     }
 
+    /*
+    TODO
+    Refactor heal
+     */
 
 
     public void heal(Fighter fighter) {
-        int healAmount = 10;
-
-        int newHp = fighter.getHp() + healAmount;
-
-        if (newHp > 100){
-            newHp = 100;
+        fighter.healFighter(FighterStats.HEAL_AMOUNT.getValue());
+        printHealMenu(fighter, FighterStats.HEAL_AMOUNT.getValue());
+        if (fighter.getHp() == FighterStats.MAX_HP.getValue()) {
+            System.out.println(fighter.getName() + " has been fully healed");
         }
-        fighter.setHp(newHp);
+    }
 
-        System.out.println(fighter.getName() + "healed for " + healAmount);
+
+    private void printHealMenu(Fighter fighter, int healAmount) {
+        System.out.println(fighter.getName() + " healed for " + healAmount);
         System.out.println(fighter.getHp() + " HP ");
-
     }
 
 
