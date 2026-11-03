@@ -1,12 +1,30 @@
 package main;
 
+import main.unittest.user.User;
+import main.unittest.user.UserService;
+
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.util.logging.*;
+
 public class Main {
+
+    private static final Logger LOGGER =
+            Logger.getLogger(Main.class.getName());
+
     public static void main(String[] args) {
-        UserRole role = UserRole.ADMIN;
-        System.out.println(role);
-        System.out.println(role.getDisplayName());
-        System.out.println(role.getAge());
-        System.out.println(role.isActive());
-        
+
+        LOGGER.info("Programmet startar");
+
+        UserService userService = new UserService();
+
+        User user = new User("Yahya", "Yahya@gmail.com");
+        userService.addUser(user);
+        userService.updateUser("yahya@gmail.com", "Hello");
+        userService.deleteUser("Yahya@gmail.com");
+
+        LOGGER.info("Programmet stannar");
+        LOGGER.warning("varna om något i appen");
+        LOGGER.severe("Något har gått riktigt illa!");
     }
 }
