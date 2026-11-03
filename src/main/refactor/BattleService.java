@@ -2,25 +2,32 @@ package main.refactor;
 
 public class BattleService {
 
+    private static final int ATTACK_DAMAGE = 10;
+    private static final int MINIMAL_HP = 0;
+
+
+
+
     public void attack(Fighter attacker, Fighter defender){
-        int damage = 10;
-        int newHp = defender.getHp() - damage;
+        int damage = ATTACK_DAMAGE;
 
-        if (newHp < 0) {
-            newHp = 0;
+        defender.takeDamage(damage);
+        printAttackResults(attacker,defender,damage);
+
+        if (defender.getHp() == MINIMAL_HP) {
+            System.out.println(defender.getName() + " has been defeated");
         }
+    }
 
-        defender.setHp(newHp);
-
+    private void printAttackResults(Fighter attacker, Fighter defender, int damage){
         System.out.println(attacker.getName() + " har attackerat " + defender.getName());
         System.out.println("Damage: " + damage);
         System.out.println(attacker.getName() + " HP " + attacker.getHp());
         System.out.println(defender.getName() + " HP " + defender.getHp());
 
-        if (defender.getHp() == 0) {
-            System.out.println(defender.getName() + " has been defeated");
-        }
     }
+
+
 
     public void heal(Fighter fighter) {
         int healAmount = 10;
