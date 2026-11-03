@@ -5,6 +5,17 @@ import java.util.Random;
 public class Fighter {
 
     private int hp = 100;
+    private int lowest = 5;
+    private int highest = 10;
+
+
+    public int getLowest() {
+        return lowest;
+    }
+
+    public int getHighest() {
+        return highest;
+    }
 
     private Random random =  new Random();
 
@@ -12,10 +23,12 @@ public class Fighter {
         return hp;
     }
 
-    public void attack(){
-        int damage = random.nextInt(5,15);
+    public int attack(){
+        int damage = random.nextInt(highest)+ lowest;
 
         hp = hp - damage;
+
+        return damage;
     }
 
 
