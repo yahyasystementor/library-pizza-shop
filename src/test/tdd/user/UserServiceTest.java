@@ -13,6 +13,16 @@ public class UserServiceTest {
     private User user;
 
 
+    /*
+
+    TODO Skapa tester för getUserByEmail() och metoden efter
+        Skapa tester för updateUser() och metoden efter
+
+        FÖLJ TDD PRINCIPER RED GREEN REFACTOR
+     */
+
+
+
     @BeforeEach
     void setUp(){
         userService = new UserService();
