@@ -25,4 +25,21 @@ public class UserService {
         return true;
     }
 
+    public User getUserByEmail(String email){
+        return users.get(email);
+    }
+
+
+    public boolean updateUser(String email, String newName){
+        User user = users.get(email);
+
+        if (user == null){
+            return false;
+        }
+        user.setName(newName);
+        return true;
+    }
+
+
+
 }

@@ -14,7 +14,6 @@ public class UserServiceTest {
 
 
     /*
-
     TODO Skapa tester för getUserByEmail() och metoden efter
         Skapa tester för updateUser() och metoden efter
 
@@ -62,6 +61,50 @@ public class UserServiceTest {
     }
 
 
+    @Test
+    void getUserByEmailShouldAUser(){
+        // Arrange
+        userService.addUser(user);
+
+
+        // Act
+        User foundUser = userService.getUserByEmail("Yahya@gmail.com");
+
+       assertNotNull(foundUser);
+
+       // assertSame(user,foundUser);
+
+    }
+
+
+    @Test
+    void getUserByEmailShouldReturnCorrectUser(){
+        // Arrange
+        userService.addUser(user);
+
+        //Act
+        User foundUser = userService.getUserByEmail("Yahya@gmail.com");
+
+        // Assert
+        assertEquals("Yahya", foundUser.getName());
+    }
+
+
+    @Test
+    void updateUserShouldChangeName(){
+
+        // Arrange
+        userService.addUser(user);
+
+        boolean updated = userService.updateUser("Yahya@gmail.com", "Lisa");
+
+        assertTrue(updated);
+
+        User updatedUser = userService.getUserByEmail("Yahya@gmail.com");
+
+        assertEquals("Lisa", updatedUser.getName());
+
+    }
 
 
 }
