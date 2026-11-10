@@ -4,8 +4,7 @@ public class Counter {
 
     private int count = 0;
 
-    public void increment(){
-        System.out.println(count);
+    public synchronized void increment(){
         count++;
     }
 
