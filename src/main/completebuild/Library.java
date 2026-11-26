@@ -28,6 +28,18 @@ public class Library {
         return sortedBooks;
     }
 
+    public Set<String> getBorrowers(){
+
+        Set<String> borrowers = new HashSet<>();
+
+        for(Loan loan : loanHistory){
+            borrowers.add(loan.getBorrower());
+        }
+        return borrowers;
+    }
+
+
+
     public boolean borrow(String id, String borrower){
         Book book = getBookById(id);
         if (book == null){

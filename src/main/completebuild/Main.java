@@ -21,6 +21,8 @@ public class Main {
         System.out.println("Lån lyckades: " + library.borrow("2", "Arezo"));
 
 
+        System.out.println("Alla lånetagare "  + library.getBorrowers());
+
         System.out.println("Katalog efter lån");
         for (Book book: library.getSortedBooks()){
             System.out.println(book);
@@ -41,8 +43,8 @@ public class Main {
 //1-Klasser och objekt DONE
 2-TDD DONE
 3-ENUM DONE
-4-Objektsamverkan
-5-Collection
+4-Objektsamverkan DONE
+5-Collection DONE
 6-Arv, Interface och polymorfism
 
 
