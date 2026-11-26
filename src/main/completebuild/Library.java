@@ -1,54 +1,57 @@
 package main.completebuild;
 
 import java.util.*;
+import java.util.logging.Logger;
 
 public class Library {
 
-    private List<Book> books = new ArrayList<>();
-    private Map<String, Book> booksById = new HashMap<>();
+    private static final Logger logger = Logger.getLogger(Library.class.getName());
+
+    private List<Media> medias = new ArrayList<>();
+    private Map<String, Media> mediaById = new HashMap<>();
     private List<Loan> loanHistory =  new ArrayList<>();
 
 
-    public boolean addBook(Book book){
-        if (booksById.containsKey(book.getId())){
+    public boolean addMedia(Media media){
+        if (mediaById.containsKey(media.getId())){
             return false;
         }
-        books.add(book);
-        booksById.put(book.getId(), book);
+        medias.add(media);
+        mediaById.put(media.getId(), media);
         return true;
     }
 
-    public Book getBookById(String id){
-        return booksById.get(id);
+    public Media getById(String id){
+        return mediaById.get(id);
     }
 
-    public List<Book> getSortedBooks(){
-        List<Book> sortedBooks = new ArrayList<>(books);
-        Collections.sort(sortedBooks);
-        return sortedBooks;
+    public List<Media> getSorted(){
+        List<Media> sorted = new ArrayList<>(medias);
+        Collections.sort(sorted);
+        return sorted;
     }
 
     public Set<String> getBorrowers(){
 
         Set<String> borrowers = new HashSet<>();
-
         for(Loan loan : loanHistory){
             borrowers.add(loan.getBorrower());
         }
         return borrowers;
     }
 
-
-
     public boolean borrow(String id, String borrower){
-        Book book = getBookById(id);
-        if (book == null){
+        Media media = getById(id);
+        if (media == null){
+            logger.info("Book not found");
             return false;
         }
-        if (!book.borrow()){
+        if (!media.borrow()){
+            logger.info("Book already borrowed");
             return false;
         }
-        Loan loan = new Loan(book, borrower);
+        logger.info(borrower + " lånade "  + media.getTitle());
+        Loan loan = new Loan(media, borrower);
         loanHistory.add(loan);
         return true;
     }
