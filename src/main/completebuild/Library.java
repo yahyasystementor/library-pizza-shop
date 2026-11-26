@@ -49,13 +49,7 @@ public class Library {
             return false;
         }
         Loan loan = new Loan(book, borrower);
-
         loanHistory.add(loan);
         return true;
-
-
     }
-
-
-
 }
