@@ -6,14 +6,16 @@ public class Book {
     private String title;
     private String author;
     private int year;
-    private boolean borrowed;
+
+    private Status status;
+
 
     public Book(int id, String title, String author, int year) {
         this.id = id;
         this.title = title;
         this.author = author;
         this.year = year;
-        this.borrowed = false;
+        this.status = Status.AVAILABLE;
     }
 
 
@@ -34,18 +36,23 @@ public class Book {
     }
 
     public boolean isAvailable() {
-        return !borrowed;
+        return status == Status.AVAILABLE;
     }
 
     public boolean borrow(){
 
-        if (borrowed){
+        if (status !=  Status.AVAILABLE) {
             return false;
         }
-        borrowed = true;
+        status = Status.BORROWED;
 
         return true;
+    }
 
+
+    @Override
+    public String toString(){
+        return id + " | " +  title + " | " + author + " | " + status;
     }
 
 }
