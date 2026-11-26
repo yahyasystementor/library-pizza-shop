@@ -1,8 +1,8 @@
 package main.completebuild;
 
-public class Book {
+public class Book implements Comparable<Book>{
 
-    private int id;
+    private String id;
     private String title;
     private String author;
     private int year;
@@ -10,7 +10,7 @@ public class Book {
     private Status status;
 
 
-    public Book(int id, String title, String author, int year) {
+    public Book(String id, String title, String author, int year) {
         this.id = id;
         this.title = title;
         this.author = author;
@@ -19,7 +19,8 @@ public class Book {
     }
 
 
-    public int getId() {
+
+    public String getId() {
         return id;
     }
 
@@ -47,6 +48,11 @@ public class Book {
         status = Status.BORROWED;
 
         return true;
+    }
+
+    @Override
+    public int compareTo(Book other){
+        return getTitle().compareToIgnoreCase(other.getTitle());
     }
 
 
