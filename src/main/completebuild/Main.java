@@ -39,8 +39,8 @@ public class Main {
 4-Objektsamverkan DONE
 5-Collection DONE
 6-Arv, Interface och polymorfism DONE
-7-Refacotor, loggning, felsökning
-
+7-Refacotor, loggning, felsökning DONE
+8- Nätverk, Client & Server
 
 
  */
